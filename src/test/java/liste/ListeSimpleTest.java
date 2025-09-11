@@ -49,11 +49,11 @@ public class ListeSimpleTest {
         listeATester.ajout(2);
         listeATester.ajout(3);
 
-        String resultat = listeATester.toString();
-
-        assertEquals("[1, 2, 3]", resultat,
-                "La méthode toString() doit afficher tous les noeuds dans l'ordre");
+        String attendu = "ListeSimple(Noeud(3), Noeud(2), Noeud(1))";
+        assertEquals(attendu, listeATester.toString(),
+                "La méthode toString() doit afficher tous les noeuds dans l'ordre (tête -> fin)");
     }
+
 
 
     @Test
