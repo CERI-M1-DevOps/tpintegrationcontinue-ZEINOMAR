@@ -45,12 +45,16 @@ public class ListeSimpleTest {
 
     @Test
     public void toStringDonneTousLesNoeuds() {
-        System.out.println(listeATester);
         listeATester.ajout(1);
         listeATester.ajout(2);
         listeATester.ajout(3);
-        System.out.println(listeATester);
+
+        String resultat = listeATester.toString();
+
+        assertEquals("[1, 2, 3]", resultat,
+                "La méthode toString() doit afficher tous les noeuds dans l'ordre");
     }
+
 
     @Test
     public void modifiePremier() {
