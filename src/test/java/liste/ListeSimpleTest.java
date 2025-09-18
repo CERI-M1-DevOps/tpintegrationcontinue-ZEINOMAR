@@ -259,4 +259,54 @@ import static org.junit.jupiter.api.Assertions.*;
         System.out.println(listeATester);
         assertEquals( "ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))",listeATester.toString());
     }
-}
+    @Test
+    void modifiePremierElementAbsent() {
+       listeATester.ajout(1);
+       listeATester.modifiePremier(9, 4);
+       assertEquals("ListeSimple(Noeud(1))", listeATester.toString());
+    }
+
+    @Test
+    void modifieTousAucunMatch() {
+       listeATester.ajout(1);
+       listeATester.ajout(2);
+       listeATester.modifieTous(9, 7);
+       assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+    }
+
+    @Test
+    void supprimePremierElementAbsent() {
+       listeATester.ajout(1);
+       listeATester.ajout(2);
+       listeATester.supprimePremier(9);
+       assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+       assertEquals(2, listeATester.getSize());
+    }
+
+    @Test
+    void supprimeTousTousIdentiques() {
+       listeATester.ajout(1);
+       listeATester.ajout(1);
+       listeATester.ajout(1);
+       listeATester.supprimeTous(1);
+       assertEquals("ListeSimple()", listeATester.toString());
+       assertEquals(0, listeATester.getSize());
+    }
+
+    @Test
+    void inverserUnElement() {
+       listeATester.ajout(1);
+       listeATester.inverser();
+       assertEquals("ListeSimple(Noeud(1))", listeATester.toString());
+    }
+
+    @Test
+    void echangerMemeNoeudNoOp() {
+       listeATester.ajout(2);
+       listeATester.ajout(1);
+       Noeud n = listeATester.tete;
+       listeATester.echanger(n, n);
+       assertEquals("ListeSimple(Noeud(1), Noeud(2))", listeATester.toString());
+    }
+
+ }
