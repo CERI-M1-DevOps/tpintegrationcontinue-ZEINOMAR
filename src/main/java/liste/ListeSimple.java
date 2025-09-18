@@ -8,11 +8,19 @@ public class ListeSimple {
         return size;
     }
 
+    /**
+     * Ajoute un élément en tête de liste.
+     * @param element valeur à insérer
+     */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
-
+    /**
+     * Modifie la première occurrence d'un élément.
+     * @param element valeur recherchée
+     * @param nouvelleValeur nouvelle valeur à placer
+     */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null && courant.getElement() != element)
@@ -93,7 +101,9 @@ public class ListeSimple {
             return courant;
         }
     }
-
+    /**
+     * Inverse l'ordre des noeuds de la liste (in-place).
+     */
     public void inverser() {
         Noeud precedent = null;
         Noeud courant = tete;
